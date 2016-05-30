@@ -1,5 +1,4 @@
 class Book < ActiveRecord::Base
-# Validations ________________________________________________________________
-validates :name, :author, :description, presence: true
-
+  has_many :reviews
+  validates :name, :author, :description, presence: true
 end
