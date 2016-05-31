@@ -1,0 +1,13 @@
+<ul class="collection">
+  <center><h4><%= @book.name %></h4></center>
+  <% @reviews.each do |review| %>
+    <li class="collection-item avatar">
+      <div class="card">
+        <div class="card-content">
+          <h3><%= review.author %></h3>
+          <p><%= review.text %></p>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>
