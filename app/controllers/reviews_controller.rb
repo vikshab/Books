@@ -1,22 +1,21 @@
 class ReviewsController < ApplicationController
+  before_action :find_book
+
   def index
-    @book = Book.find(params[:book_id])
     @reviews = @book.reviews
   end
 
-  def new
-    @review = Review.new
-  end
-
   def create
-    review = Review.create(create_params[:review])
-    book = Book.find([:book_id])
-    review.book_id = book.id
+    review = Review.create!(create_params)
+    @book.reviews.append(review)
+    redirect_to reviews_path
+  end
 
-    if review.save
-      redirect_to reviews_path
-    else
-      render :new
-    end
+  def find_book
+    @book = Book.find(params[:book_id])
   end
+
+  def create_params
+    params.require(:review).permit(:text, :author)
   end
+end
