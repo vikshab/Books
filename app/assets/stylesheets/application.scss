@@ -14,3 +14,7 @@
  *= require_self
  */
  @import "materialize";
+
+.card {
+   @extend .blue, .lighten-4;
+}
