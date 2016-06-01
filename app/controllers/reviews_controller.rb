@@ -6,8 +6,18 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    review = Review.create!(create_params)
-    @book.reviews.append(review)
+    review = Review.create(create_params)
+    if review.save
+      @book.reviews.append(review)
+    else
+      if review[:text] == "" && review[:author] == ""
+        flash[:notice] = "You entered nothing"
+      elsif review[:author] == ""
+        flash[:notice] = "You forgot enter your name"
+      else
+        flash[:notice] = "#{review[:author].capitalize}, " + "no reviews?"
+      end
+    end
     redirect_to reviews_path
   end
 
