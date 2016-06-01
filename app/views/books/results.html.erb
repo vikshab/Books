@@ -1,0 +1,25 @@
+<div class="container">
+  <h2> <center>Result for search "<%="#{@query}" %>"</center></h2>
+  <div class="row">
+    <% unless @result == nil %>
+    <div class="col s12 m6 offset-m3 center">
+      <blockquote>For a true writer, each book should be a new beginning where
+         he tries again for something that is beyond attainment.
+         He should always try for something that has never been done or that
+          others have tried and failed. Then sometimes, with great luck, he will succeed.
+      </blockquote>
+      <p>–Ernest Hemingway</p>
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4"><%= @result.name %><i class="material-icons right">more_vert</i></span><br>
+            <%= link_to "Reviews", reviews_path(@result.id), class:"waves-effect waves-light" %>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4"><%= @result.name %><i class="material-icons right">close</i></span><br>
+            <p><%= @result.description %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
