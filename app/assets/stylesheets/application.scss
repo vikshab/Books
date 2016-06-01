@@ -15,6 +15,71 @@
  */
  @import "materialize";
 
-.card {
-   @extend .blue, .lighten-4;
+html {
+  background-color: #40c4ff;
 }
+
+// Remove forced yellow input background in Chrome
+input:-webkit-autofill:focus {
+  transition: background-color 600s ease-in-out 0s;
+}
+
+// Rewrite default nav color in materialize framework
+nav {
+  background-color: white;
+}
+
+// Rewrite default nav links color in materialize framework
+nav ul a{
+  color: #40c4ff;
+}
+
+.search {
+  height: 100px;
+	position: relative;
+	top: 150px;
+}
+
+.notice {
+  margin: 0 auto;
+  width: 10em;
+  color: red;
+}
+
+.circle {
+  width:200px;
+  height:200px;
+  border-radius:50%;
+  background:white;
+  padding-top: 15px;
+}
+
+div.container1 {
+    height: 10em;
+    position: relative }
+
+div.container1 .circle{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+  }
+
+// Change default placeholder text color
+  ::-webkit-input-placeholder {
+     color: white;
+  }
+
+  :-moz-placeholder { /* Firefox 18- */
+     color: white;
+  }
+
+  ::-moz-placeholder {  /* Firefox 19+ */
+     color: white;
+  }
+
+  :-ms-input-placeholder {
+     color: white;
+  }
