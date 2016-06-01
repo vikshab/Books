@@ -8,8 +8,36 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<!-- Navigation  -->
+  <nav>
+    <ul class="right hide-on-med-and-down">
+      <% if request.path == '/' %>
+        <li><%= link_to("All books", books_path) %></li>
+      <% elsif request.path == "/books/#{params[:book_id]}/reviews"%>
+        <li><%= link_to("Home", home_path) %></li>
+        <li><%= link_to("All books", books_path) %></li>
+        <li><%= link_to("Back", :back) %></li>
+      <% elsif request.path == "/books"%>
+        <li><%= link_to("Home", home_path) %></li>
+        <li><%= link_to("Back", :back) %></li>
+        <li><%= link_to("Add a book", new_book_create_path) %></li>
+      <% elsif request.path == "/books/new" %>
+        <li><%= link_to("Home", home_path) %></li>
+        <li><%= link_to("All books", books_path) %></li>
+        <li><%= link_to("Back", :back) %></li>
+      <% else%>
+        <li><%= link_to("Home", home_path) %></li>
+        <li><%= link_to("Back", :back) %></li>
+      <% end %>
+    </ul>
+  </nav>
+<!--End of navigation  -->
 
 <%= yield %>
+
+<% if flash[:notice] -%>
+  <div class='notice'><%= flash[:notice] %></div>
+<% end -%>
 
 </body>
 </html>
