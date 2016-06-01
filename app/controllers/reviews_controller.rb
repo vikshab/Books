@@ -22,7 +22,11 @@ class ReviewsController < ApplicationController
   end
 
   def find_book
-    @book = Book.find(params[:book_id])
+    if params[:book_id].to_i <= Book.count
+      @book = Book.find(params[:book_id])
+    else
+      redirect_to home_path
+    end
   end
 
   def create_params
