@@ -1,13 +1,37 @@
-<ul class="collection">
-  <center><h4><%= @book.name %></h4></center>
-  <% @reviews.each do |review| %>
-    <li class="collection-item avatar">
-      <div class="card">
-        <div class="card-content">
-          <h3><%= review.author %></h3>
-          <p><%= review.text %></p>
-        </div>
+<div class="row">
+  <div class="col s12 m6 offset-m3 center">
+    <blockquote>Mountains were once my big adventure but is is over since a long time;
+      I still dream from the wonderful days sometimes, read also a few pages from a mountain book.
+       But the thought of doing again active mountain climbing has faded.
+    </blockquote>
+    <p>–Fritz Zwicky</p>
+    <center><h4>Reviews for "<%= @book.name %>"</h4></center>
+    click to see review
+    <% if @reviews.empty? %>
+      This book has no reviews yet.
+    <% else %>
+      <ul class="collapsible" data-collapsible="accordion">
+        <% @reviews.each do |review| %>
+        <li>
+          <div class="collapsible-header">
+            <%= review.author %>
+          </div>
+          <div class="collapsible-body">
+            <p><%= review.text %></p>
+          </div>
+        </li>
+        <% end %>
+      </ul>
+    <% end %>
+    <!-- Form for new review -->
+    <%= form_for Review.new, url: review_create_url(book_id: @book.id) do |f| %>
+      <div class="input-field"><i class="material-icons prefix">mode_edit</i>
+        <%= f.text_field :author, autofocus: true, :class => "validate", :placeholder => "Name" %>
       </div>
-    </li>
-  <% end %>
-</ul>
+      <div class="input-field"><i class="material-icons prefix">mode_edit</i>
+        <%= f.text_area :text, autofocus: true, :class => "validate", :placeholder => "Review" %>
+      </div>
+      <button class="btn waves-effect waves-light" type="submit" name="action">Add</button>
+    <% end %>
+  </div>
+</div>
