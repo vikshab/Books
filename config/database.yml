@@ -49,16 +49,16 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  # <<: *default
-  # database: Books_production
-  # username: root
-  # password: admin
-  # host: 127.0.0.1
-  # port: 3306
-  adapter: mysql2
-  encoding: utf8
-  database: <%= ENV['RDS_DB_NAME'] %>
-  username: <%= ENV['RDS_USERNAME'] %>
-  password: <%= ENV['RDS_PASSWORD'] %>
-  host: 127.0.0.1 
-  port: <%= ENV['RDS_PORT'] %>
+  <<: *default
+  database: Books_production
+  username: root
+  password: admin
+  host: 127.0.0.1
+  port: 3306
+  # adapter: mysql2
+  # encoding: utf8
+  # database: <%= ENV['RDS_DB_NAME'] %>
+  # username: <%= ENV['RDS_USERNAME'] %>
+  # password: <%= ENV['RDS_PASSWORD'] %>
+  # host: <%= ENV['RDS_HOSTNAME'] %>
+  # port: <%= ENV['RDS_PORT'] %>
