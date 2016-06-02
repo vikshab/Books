@@ -53,5 +53,6 @@ production:
   database: Books_production
   username: root
   password: admin
-  host: 127.0.0.1
+  # host: 127.0.0.1
+  host: 54.149.240.133
   port: 3306
