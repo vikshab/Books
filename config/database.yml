@@ -14,7 +14,7 @@ default: &default
   encoding: utf8
   pool: 5
   username: root
-  password: admin
+  password: 00000000
   # host: 127.0.0.1
   host: aa115drheuuplna.cbaol489dez1.us-west-2.rds.amazonaws.com
   socket: /tmp/mysql.sock
@@ -53,7 +53,7 @@ production:
   <<: *default
   database: Books_production
   username: root
-  password: admin
+  password: 00000000
   # host: 127.0.0.1
   host: aa115drheuuplna.cbaol489dez1.us-west-2.rds.amazonaws.com
   port: 3306
