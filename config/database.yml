@@ -53,5 +53,6 @@ production:
   database: Books_production
   username: root
   password: admin
-  host: 127.0.0.1
+  # host: 127.0.0.1
+  host: http://ec2-54-149-240-133.us-west-2.compute.amazonaws.com
   port: 3306
