@@ -15,7 +15,7 @@ default: &default
   pool: 5
   username: root
   password: admin
-  host: aa115drheuuplna.cbaol489dez1.us-west-2.rds.amazonaws.com
+  host: 127.0.0.1
   socket: /tmp/mysql.sock
 
 development:
@@ -54,5 +54,5 @@ production:
   username: root
   password: admin
   # host: 127.0.0.1
-  host: aa115drheuuplna.cbaol489dez1.us-west-2.rds.amazonaws.com
+  host: 127.0.0.1
   port: 3306
