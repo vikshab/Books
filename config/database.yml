@@ -57,7 +57,7 @@ production:
   # password: <%= ENV['RDS_PASSWORD'] %>
   # host: <%= ENV['RDS_HOSTNAME'] %>
   # port: <%= ENV['RDS_PORT'] %>
-database: Books_production
+database: <%= ENV['RDS_DB_NAME'] %>
 username: root
 password: 00000000
 host:  aajdi23j69v0el.cbaol489dez1.us-west-2.rds.amazonaws.com
